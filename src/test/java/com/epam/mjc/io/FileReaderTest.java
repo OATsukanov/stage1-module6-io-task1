@@ -44,10 +44,10 @@ public class FileReaderTest {
         Profile actual = null;
         try {
             actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
+            assertEquals(profile, actual);
         } catch (IOException e) {
             System.out.println("File not found");
         }
-        assertEquals(profile, actual);
     }
 
     @Test
