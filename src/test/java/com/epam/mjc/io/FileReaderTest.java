@@ -41,12 +41,13 @@ public class FileReaderTest {
     @Test
     public void testProgramReadsDataCorrectly () {
         FileReader fileReader = new FileReader();
+        Profile actual = null;
         try {
-            Profile actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
-            assertEquals(profile, actual);
+            actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
         } catch (IOException e) {
-            new IOException("File not found");
+            throw new RuntimeException(e);
         }
+        assertEquals(profile, actual);
     }
 
     @Test
