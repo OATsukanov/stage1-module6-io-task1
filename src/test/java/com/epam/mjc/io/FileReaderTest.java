@@ -45,7 +45,7 @@ public class FileReaderTest {
         try {
             actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("File not found");
         }
         assertEquals(profile, actual);
     }
