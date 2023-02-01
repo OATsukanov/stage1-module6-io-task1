@@ -10,13 +10,17 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
 
         String profileString = "";
+        StringBuilder bld = new StringBuilder();
 
         try (FileInputStream inputStream = new FileInputStream(file)) {
 
             int c;
             while ((c = inputStream.read()) != -1) {
-                profileString += (char)c;
+
+                bld.append((char)c);
             }
+
+            profileString = bld.toString();
         } catch (IOException e){
 
             e.printStackTrace();
