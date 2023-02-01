@@ -7,24 +7,24 @@ import java.io.IOException;
 
 public class FileReader {
 
-    public Profile getDataFromFile(File file) throws IOException {
+    public Profile getDataFromFile(File file) {
 
-        FileInputStream imputStream = null;
-        //file = new File("Profile.txt");
-
+        FileInputStream inputStream = null;
         String profileString = "";
 
         try {
-            imputStream = new FileInputStream(file);
+            inputStream = new FileInputStream(file);
             int c;
-            while ((c = imputStream.read()) != -1) {
+            while ((c = inputStream.read()) != -1) {
                 profileString += (char)c;
             }
-        } finally {
 
-            if (imputStream != null) {
-                imputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
             }
+        } catch (IOException e){
+
+            e.printStackTrace();
         }
 
         String[] pairs = profileString.split("\\n");

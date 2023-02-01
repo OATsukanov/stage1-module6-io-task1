@@ -40,14 +40,9 @@ public class FileReaderTest {
 
     @Test
     public void testProgramReadsDataCorrectly () {
-        try {
-            FileReader fileReader = new FileReader();
-            Profile actual = null;
-            actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
-            assertEquals(profile, actual);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FileReader fileReader = new FileReader();
+        Profile actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
+        assertEquals(profile, actual);
     }
 
     @Test
