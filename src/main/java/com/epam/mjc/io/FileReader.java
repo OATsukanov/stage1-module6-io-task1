@@ -9,18 +9,13 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
 
-        FileInputStream inputStream = null;
         String profileString = "";
 
-        try {
-            inputStream = new FileInputStream(file);
+        try (FileInputStream inputStream = new FileInputStream(file)) {
+
             int c;
             while ((c = inputStream.read()) != -1) {
                 profileString += (char)c;
-            }
-
-            if (inputStream != null) {
-                inputStream.close();
             }
         } catch (IOException e){
 
